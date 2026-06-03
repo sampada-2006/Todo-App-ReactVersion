@@ -1,16 +1,35 @@
-# React + Vite
+# Todo App UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A basic Todo App user interface built using React as a practice project to learn React components and JSX.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The application is divided into the following components:
 
-## React Compiler
+- `AppName.jsx` – Displays the application title.
+- `AddTodo.jsx` – Contains the input fields and add button UI.
+- `TodoItem1.jsx` – Displays the first todo item.
+- `TodoItem2.jsx` – Displays the second todo item.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React.js
+- JavaScript
+- CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Purpose
+
+This project was created for learning and practicing:
+
+- React components
+- JSX syntax
+- Component composition
+- Basic React project structure
+
+## Future Improvements
+
+- Dynamic todo list functionality
+- State management using React Hooks
+- Task addition and deletion
+- Responsive design
+- Local storage support
