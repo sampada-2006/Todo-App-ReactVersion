@@ -1,6 +1,14 @@
-# Todo App UI
+# Todo App UI - Version 2
 
-A basic Todo App user interface built using React as a practice project to learn React components and JSX.
+A simple Todo App user interface built using React. This version improves upon the initial implementation by introducing reusable components, props, dynamic rendering of todo items, and CSS Modules for component-level styling.
+
+## Features
+
+- Reusable Todo Item component
+- Dynamic rendering of tasks using `map()`
+- Props for passing data between components
+- Component-level styling using CSS Modules
+- Clean and organized project structure
 
 ## Project Structure
 
@@ -8,28 +16,36 @@ The application is divided into the following components:
 
 - `AppName.jsx` – Displays the application title.
 - `AddTodo.jsx` – Contains the input fields and add button UI.
-- `TodoItem1.jsx` – Displays the first todo item.
-- `TodoItem2.jsx` – Displays the second todo item.
+- `TodoItem.jsx` – Reusable component for displaying a single todo item.
+- `TodoItems.jsx` – Renders multiple todo items dynamically.
+- `*.module.css` – Provides scoped styling for individual components.
 
 ## Technologies Used
 
 - React.js
-- JavaScript
-- CSS
+- JavaScript (ES6+)
+- CSS Modules
+- Vite
 
-## Purpose
+## Concepts Practiced
 
-This project was created for learning and practicing:
-
-- React components
-- JSX syntax
-- Component composition
-- Basic React project structure
+- React Components
+- JSX Syntax
+- Props
+- Array Mapping
+- Component Reusability
+- CSS Modules
+- Project Structuring
 
 ## Future Improvements
 
-- Dynamic todo list functionality
-- State management using React Hooks
-- Task addition and deletion
+- Add functionality to create new tasks
+- Delete completed tasks
+- Manage state using React Hooks
+- Store tasks in Local Storage
 - Responsive design
-- Local storage support
+- Task completion status
+
+## Learning Outcome
+
+This project was created as part of my React learning journey to understand component composition, props, dynamic rendering, and modular styling techniques.
