@@ -28,11 +28,10 @@ function App() {
   };
 
   const handelDeleteButton = (todoItemName, todoDueDate) => {
-    console.log(`item deleted ${todoItemName}`);
     let delItem = { name: todoItemName, dueDate: todoDueDate };
-    const listAfterDel = todoItems.filter(
-      (item) => item.name !== delItem.name && item.dueDate !== delItem.dueDate,
-    );
+    const listAfterDel = todoItems.filter((item) => {
+      return !(item.name === delItem.name && item.dueDate === delItem.dueDate);
+    });
     setTodoItems(listAfterDel);
   };
 

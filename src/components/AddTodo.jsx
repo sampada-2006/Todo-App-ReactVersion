@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { IoBagAdd } from "react-icons/io5";
+import styles from "./AddTodo.module.css";
 
 function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState();
-  const [dueDate, setDueDate] = useState();
+  const [todoName, setTodoName] = useState("");
+  const [dueDate, setDueDate] = useState("");
 
   const handleNameChange = () => {
     setTodoName(event.target.value);
@@ -17,8 +19,8 @@ function AddTodo({ onNewItem }) {
   };
 
   return (
-    <div className="container">
-      <div className="row my-row">
+    <div className={`${styles.inputBar} container`}>
+      <div className={`${styles.inputRow} row my-row`}>
         <div className="col-sm-6">
           <input
             type="text"
@@ -36,7 +38,7 @@ function AddTodo({ onNewItem }) {
             className="btn btn-success my-button"
             onClick={handleAddButton}
           >
-            Add
+            <IoBagAdd />
           </button>
         </div>
       </div>
