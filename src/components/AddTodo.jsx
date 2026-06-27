@@ -13,6 +13,7 @@ function AddTodo({ onNewItem }) {
     setDueDate(event.target.value);
   };
   const handleAddButton = () => {
+    event.preventDefault();
     onNewItem(todoName, dueDate);
     setTodoName("");
     setDueDate("");
@@ -20,7 +21,10 @@ function AddTodo({ onNewItem }) {
 
   return (
     <div className={`${styles.inputBar} container`}>
-      <div className={`${styles.inputRow} row my-row`}>
+      <form
+        className={`${styles.inputRow} row my-row`}
+        onSubmit={handleAddButton}
+      >
         <div className="col-sm-6">
           <input
             type="text"
@@ -33,15 +37,11 @@ function AddTodo({ onNewItem }) {
           <input type="date" value={dueDate} onChange={handleDateChange} />
         </div>
         <div className="col-sm-2">
-          <button
-            type="button"
-            className="btn btn-success my-button"
-            onClick={handleAddButton}
-          >
+          <button className="btn btn-success my-button">
             <IoBagAdd />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
