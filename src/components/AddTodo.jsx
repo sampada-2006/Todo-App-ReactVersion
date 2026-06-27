@@ -1,22 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { IoBagAdd } from "react-icons/io5";
 import styles from "./AddTodo.module.css";
 
 function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const todoNameElement = useRef("");
+  const dueDateElement = useRef("");
 
-  const handleNameChange = () => {
-    setTodoName(event.target.value);
-  };
-  const handleDateChange = () => {
-    setDueDate(event.target.value);
-  };
   const handleAddButton = () => {
     event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
     onNewItem(todoName, dueDate);
-    setTodoName("");
-    setDueDate("");
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
   };
 
   return (
@@ -29,12 +25,11 @@ function AddTodo({ onNewItem }) {
           <input
             type="text"
             placeholder="Enter Todo Here"
-            value={todoName}
-            onChange={handleNameChange}
+            ref={todoNameElement}
           />
         </div>
         <div className="col-sm-4">
-          <input type="date" value={dueDate} onChange={handleDateChange} />
+          <input type="date" ref={dueDateElement} />
         </div>
         <div className="col-sm-2">
           <button className="btn btn-success my-button">
