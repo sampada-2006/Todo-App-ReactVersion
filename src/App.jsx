@@ -22,9 +22,11 @@ function App() {
     if (itemName.trim() === "" || itemDueDate.trim() === "") {
       return;
     }
-    let newItem = { name: itemName, dueDate: itemDueDate };
-    const newList = [...todoItems, newItem];
-    setTodoItems(newList);
+
+    setTodoItems((currValue) => [
+      ...currValue,
+      { name: itemName, dueDate: itemDueDate },
+    ]);
   };
 
   const handelDeleteButton = (todoItemName, todoDueDate) => {
