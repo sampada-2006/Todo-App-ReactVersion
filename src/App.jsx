@@ -4,21 +4,12 @@ import "./App.css";
 import TodoItems from "./components/TodoItems.jsx";
 import WelcomeMsg from "./components/WelcomeMsg.jsx";
 import { useState } from "react";
-function App() {
-  const initialTodoItems = [
-    {
-      name: "Buy Milk",
-      dueDate: "20/03/2026",
-    },
-    {
-      name: "Go to college",
-      dueDate: "20/03/2026",
-    },
-  ];
+import { TodoItemsContext } from "./store/todo-items-store.jsx";
 
+function App() {
   const [todoItems, setTodoItems] = useState([]);
 
-  const handelButtonClicked = (itemName, itemDueDate) => {
+  const addNewItem = (itemName, itemDueDate) => {
     if (itemName.trim() === "" || itemDueDate.trim() === "") {
       return;
     }
@@ -29,7 +20,7 @@ function App() {
     ]);
   };
 
-  const handelDeleteButton = (todoItemName, todoDueDate) => {
+  const deleteItem = (todoItemName, todoDueDate) => {
     let delItem = { name: todoItemName, dueDate: todoDueDate };
     const listAfterDel = todoItems.filter((item) => {
       return !(item.name === delItem.name && item.dueDate === delItem.dueDate);
@@ -38,15 +29,20 @@ function App() {
   };
 
   return (
-    <center className="todo-container">
-      <AppName />
-      <AddTodo onNewItem={handelButtonClicked} />
-      {todoItems.length == 0 && <WelcomeMsg></WelcomeMsg>}
-      <TodoItems
-        todoItems={todoItems}
-        onDeleteClick={handelDeleteButton}
-      ></TodoItems>
-    </center>
+    <TodoItemsContext.Provider
+      value={{
+        todoItems: todoItems,
+        addNewItem: addNewItem,
+        deleteItem: deleteItem,
+      }}
+    >
+      <center className="todo-container">
+        <AppName />
+        <AddTodo />
+        <WelcomeMsg></WelcomeMsg>
+        <TodoItems></TodoItems>
+      </center>
+    </TodoItemsContext.Provider>
   );
 }
 
